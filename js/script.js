@@ -192,8 +192,7 @@ async function main() {
 
     // Add eventlistner into the PreviousButton
     document.getElementById("previous").addEventListener("click", () => {
-
-        let index = songs.indexOf(decodeURI(currentsong.src.split(`/${currFolder}/`)[1]).trim());
+let index = songs.indexOf(decodeURIComponent(currentsong.src.split("/").pop()).trim());
         if ((index - 1) >= 0) {
             playmusic(songs[index - 1]);
         } else {
@@ -203,7 +202,7 @@ async function main() {
 
     // Add eventlistner into the  Next Button
     document.getElementById("next").addEventListener("click", () => {
-        let index = songs.indexOf(decodeURI(currentsong.src.split(`/${currFolder}/`)[1]).trim());
+       let index = songs.indexOf(decodeURIComponent(currentsong.src.split("/").pop()).trim());
         if ((index + 1) < songs.length) {
             playmusic(songs[index + 1]);
         } else {
