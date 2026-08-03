@@ -1,0 +1,718 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
+}
+
+html {
+  background-color: black;
+}
+
+/* Utility class */
+.cp {
+  cursor: pointer;
+}
+
+.colorwhite {
+  color: white;
+}
+
+/* Utility class End */
+.container {
+  background-color: rgb(0, 0, 0);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAv start  */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  /* background-color: #83836a; */
+  color: white;
+  height: 60px;
+  width: 100%;
+}
+
+.navleft {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex: 1;
+}
+
+.menu {
+  display: none;
+}
+
+.close {
+  display: none;
+}
+
+.navleft .logo {
+  margin-left: 30px;
+}
+
+
+.searchBox {
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  border: 2px solid #ffffff;
+  border-radius: 36px;
+  width: 100%;
+  max-width: 900px;
+  padding: 10px;
+}
+
+.searchBox input {
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  caret-color: white;
+  /* margin-right: auto; */
+  flex: 1;
+}
+
+.browseIcon {
+  display: flex;
+}
+
+.links ul li {
+  list-style: none;
+}
+
+.navRight,
+ul {
+  margin: 30px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  cursor: pointer;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-actions button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.nav-actions button.border {
+  height: 37px;
+  width: 90px;
+  border-radius: 30px;
+  background-color: white;
+  font-weight: 800;
+}
+
+.btn-login.border:hover {
+  transform: scale(1.10);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  background-color: #1a1a1a;
+  /* গাঢ় কালচে রঙ */
+  color: #ffffff;
+  /* টেক্সট সাদা হয়ে যাবে */
+  border-color: #1a1a1a;
+
+}
+
+/* Nav end  */
+.left {
+  background-color: black;
+  width: 400px;
+ 
+
+}
+
+.leftRightMAin {
+  display: flex;
+  margin: 4px;
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Left Start  */
+.Lcontainer {
+
+  height: calc(100% - 40px);
+  background-color: #1f1f1f;
+  margin: 7px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+
+}
+
+.libraryBAr {
+  height: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 20px;
+  color: white;
+  font-weight: 700;
+}
+
+.libraryBAr button {
+  display: flex;
+  background-color: #1f1f1f;
+  align-items: center;
+  width: 100px;
+  height: 33px;
+  justify-content: center;
+  border-radius: 19px;
+  color: white;
+  font-weight: 700;
+}
+
+.songname {
+  display: flex;
+  gap: 10px;
+}
+
+.music {
+  display: flex;
+  gap: 17px;
+  align-content: center;
+}
+
+.music img {
+  width: 27px;
+  height: 27px;
+
+}
+
+.second {
+  display: flex;
+  gap: 17px;
+  align-items: center;
+}
+
+.createPlaylist {}
+
+.findPodcast {}
+
+.librayTwo {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  border: 2px solid black;
+  width: 26vw;
+  padding: 20px;
+  height: 100px;
+  gap: 12px;
+  border-radius: 15px;
+  color: white;
+}
+
+.librayTwo button {
+  width: 136px;
+  height: 41px;
+  border-radius: 38px;
+  padding: 4px;
+  color: black;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+/* Left End  */
+/* Right Start  */
+.right {
+  flex: 1;
+  flex-direction: column;
+  border: 2px solid black;
+  margin-top: 0;
+  height: calc(100% - 40px);
+  color: white;
+  margin-top: 27px;
+  background-color: #121212;
+  border-radius: 29px;
+  position: relative;
+}
+
+.right p {
+  margin: 32px;
+  font-size: 25px;
+}
+
+.footer {
+
+  padding-top: 18px;
+}
+
+.footer span {
+  font-size: 13px;
+  padding: 26px;
+  color: grey;
+}
+
+.language {
+  margin: 28px;
+}
+
+.language button {
+  width: 129px;
+  height: 35px;
+  border-radius: 27px;
+  padding: 4px;
+  color: black;
+  cursor: pointer;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trendingSongs {
+  /* border: 2px solid white; */
+  width: 100%;
+  height: 75%;
+  display: flex;
+ flex-wrap: wrap;
+ overflow-y: auto;
+ scrollbar-width:thin ; /* স্ক্রলবার চিকন করবে (thin / auto) */
+  scrollbar-color: #00d2ff #1a1a2e; /* [Thumb কালার] [Track কালার] */
+}
+
+.trendingSongs .pic {
+  /* border: 2px solid white; */
+  width: 149px;
+  height: 149px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 9px;
+}
+
+.h1h2 {
+  font-size: 5px;
+  margin-left: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.card {
+  position: relative;
+  width: 170px;
+  height: 191px;
+  cursor: pointer;
+}
+
+.card .pic img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.songcard {
+  /* border: 2px solid white; */
+  width: 168px;
+}
+
+.innercard {
+  width: 170px;
+  height: 191px;
+  position: relative;
+}
+
+.Greenplay img {
+  position: absolute;
+  bottom: -20px;
+  right: 5px;
+  scale: 0.6;
+  transition: all 0.2s ease-out;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.songcard:hover+.Greenplay img {
+  scale: 1;
+  bottom: 40px;
+  right: 5px;
+  visibility: visible;
+  opacity: 1;
+}
+
+.songcardplayicon {
+  position: relative;
+  bottom: -34px;
+  right: 9px;
+}
+
+.songlist {
+  flex: 1;
+  overflow-y: auto;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 18px;
+}
+
+
+
+.songlist ul {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 6px;
+  list-style-type: none;
+}
+
+.songlist ul li {
+  width: 100%;
+  border: 1px solid #fffcfc;
+
+  min-height: 60px;
+  text-align: left;
+}
+
+.songlist img {
+  width: 27px;
+}
+.text{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+/* কন্টেইনার স্টাইল */
+/* কন্টেইনার স্টাইল - তীরগুলোকে পাশাপাশি সাজাবে */
+.arrows-row-container {
+  display: flex;
+  justify-content: center; /* মাঝখানে রাখার জন্য */
+  align-items: center;
+  gap: 8px; /* তীরগুলোর মাঝের দূরত্ব */
+  padding: 20px;
+}
+
+/* প্রতিটি তীরের স্টাইল (মডার্ন Chevron) */
+.arrow {
+  width: 18px;
+  height: 18px;
+  border-top: 3px solid #00d2ff; /* তীরের রঙ - প্রথম ছবি অনুযায়ী */
+  border-right: 3px solid #00d2ff;
+  transform: rotate(45deg); /* ডানে ঘোরানোর জন্য */
+  display: inline-block;
+  opacity: 0.1; /* শুরুতে প্রায় অদৃশ্য থাকবে */
+  
+  /* অ্যানিমেশন সেটআপ */
+  animation: flowingBlink 1.5s infinite ease-in-out;
+}
+
+/* ১০টি তীরের জন্য পর্যায়ক্রমে দেরি (Staggered Animation Delays) */
+.arrow:nth-child(1) { animation-delay: 0.0s; }
+.arrow:nth-child(2) { animation-delay: 0.1s; }
+.arrow:nth-child(3) { animation-delay: 0.2s; }
+.arrow:nth-child(4) { animation-delay: 0.3s; }
+.arrow:nth-child(5) { animation-delay: 0.4s; }
+.arrow:nth-child(6) { animation-delay: 0.5s; }
+.arrow:nth-child(7) { animation-delay: 0.6s; }
+.arrow:nth-child(8) { animation-delay: 0.7s; }
+.arrow:nth-child(9) { animation-delay: 0.8s; }
+.arrow:nth-child(10) { animation-delay: 0.9s; }
+
+/* ব্লিংকিং এবং গ্লোয়িং অ্যানিমেশন কি-ফ্রেম */
+@keyframes flowingBlink {
+  0%, 100% {
+    opacity: 0.1;
+    filter: drop-shadow(0 0 0px #ebeced);
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 8px #00d2ff); /* গ্লোয়িং এফেক্ট */
+  }
+}
+.two h1 {
+  font-size: 12px;
+}
+
+/* playbar section */
+.songinfo {
+  color: rgb(252, 252, 252);
+  font-size: small;
+  overflow: visible;
+  white-space: nowrap;
+
+
+}
+
+.songtime {
+
+  color: rgb(249, 247, 247);
+}
+
+.playbar {
+  border: 2px solid white;
+  width: 98%;
+  /* প্রস্থ ৯৮% করা হলো */
+  height: 13%;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+  bottom: 3px;
+  background-color: rgb(18, 177, 42);
+  border-radius: 9px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #121212;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  /* ডিপ শ্যাডো */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  /* বর্ডার কিছুটা সফট করা হয়েছে */
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  /* volume কে ডানে ঠেলবে */
+  width: 100%;
+  position: relative;
+}
+
+.info_time {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: left;
+  position: absolute;
+  top: 0;
+
+}
+
+.seekbar {
+  cursor: pointer;
+  background-color: white;
+  height: 5px;
+  width: 99%;
+  position: absolute;
+  bottom: 4px;
+  left: 2px;
+  border-radius: 10px;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  border: 2px solid red;
+  border-radius: 10px;
+  position: absolute;
+  bottom: -4px;
+  background: red;
+  transition: left 0.1s ease-in;
+}
+
+.playsvgs {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.playsvgs img {}
+
+.songPlay {
+  justify-content: space-around;
+  list-style: none;
+  color: white;
+  display: flex;
+  font-size: 13px;
+  margin: 10px;
+  gap: 10px;
+}
+
+.songPlay ul {
+  list-style-type: none;
+}
+
+.volume {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  margin-right: 3%;
+  display: none;
+}
+
+.volume input {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1371px) {
+  .navbar {
+    flex-wrap: wrap;
+    height: auto;
+    padding-bottom: 20px;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  .menu img {
+    transform: translateX(25px);
+  }
+
+  .close {
+    display: block;
+  }
+
+  .close img {
+    position: absolute;
+    right: 0;
+
+  }
+
+  .logo img {
+    display: none;
+  }
+
+  .navDivider1 {
+    display: none;
+  }
+
+  .navRight,
+  ul {
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 10px 0;
+  }
+
+  .leftRightMAin {
+    position: relative;
+    flex-direction: column;
+  }
+
+  .searchBox input {
+    width: 100%;
+  }
+
+  .left {
+    position: fixed;
+    width: 300px;
+    height: calc(100vh - 80px);
+    left: -300px;
+    top: 0;
+    transition: all 0.4s ease-in-out;
+    z-index: 10;
+    overflow-y: scroll;
+  }
+
+  .Lcontainer {
+    font-size: 10px;
+    margin: 0;
+  }
+
+  .playbar {
+    width: 100vw;
+  }
+
+  .right {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .text{
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    .right p {
+      margin: 14px;
+    } 
+
+    .center {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+    }
+  }
+  .trendingSongs{
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+
+    max-height: 65vh; /* কন্টেইনারের সর্বোচ্চ উচ্চতা স্ক্রিনের ৬৫% করে দেওয়া হলো */
+    overflow-y: auto; /* উপর-নিচ (Vertical) স্ক্রল চালু করবে */
+    padding-bottom: 120px;
+  }
+  .playbar {
+    height: 126px;
+    display: flex !important;
+    justify-content: center !important;
+    text-align: center !important;
+    flex-direction: column !important;
+    margin: 0 auto;
+    width: 96%;
+    right: 0;
+  }
+
+  .center {
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .playsvgs {
+    cursor: pointer;
+    display: flex;
+
+    gap: 16px;
+    transform: none;
+    gap: 10px;
+    position: static;
+  }
+
+  .Cont_volume {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-width: 150px;
+  }
+
+  .songtime {
+    font-size: 0.8em;
+  }
+
+
+
+  .info_time {
+    display: flex;
+    position: absolute;
+    top: 8px;
+    justify-content: space-between;
+    gap: 10px;
+
+  }
+  }
