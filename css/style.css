@@ -5,6 +5,9 @@
 
 
 }
+* {
+  -webkit-tap-highlight-color: transparent; 
+}
 
 html {
   background-color: black;
@@ -181,6 +184,8 @@ ul {
 .songname {
   display: flex;
   gap: 10px;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .music {
@@ -378,7 +383,7 @@ ul {
   width: 100%;
   border: 1px solid #fffcfc;
 
-  min-height: 85px;
+  min-height: 60px;
   text-align: left;
 }
 
@@ -445,8 +450,9 @@ ul {
 .songinfo {
   color: rgb(252, 252, 252);
   font-size: small;
-  overflow: visible;
+  overflow: hidden;
   white-space: nowrap;
+  text-overflow: ellipsis;
 
 
 }
@@ -538,8 +544,29 @@ ul {
   display: flex;
   font-size: 13px;
   margin: 10px;
-  gap: 10px;
+  
 }
+.songPlay {
+  transition: background-color 0.15s ease;
+  border-radius: 8px;
+}
+
+/* --- Currently Playing Song Highlight --- */
+.songPlay.active-song {
+  background-color: rgba(0, 210, 255, 0.15); /* হালকা গ্লোয়িং ব্যাকগ্রাউন্ড */
+  border-left: 4px solid #00d2ff; /* বাম পাশে প্রিমিয়াম বর্ডার */
+  border-radius: 4px;
+}
+
+.songPlay.active-song .two h1 {
+  color: #00d2ff;        /*Highlight the name of the song*/
+  font-weight: 700;
+}
+
+.songPlay:active {
+  background-color: rgba(255, 255, 255, 0.15); /* ✅ শুধু এই item টা highlight হবে */
+}
+
 
 .songPlay ul {
   list-style-type: none;
@@ -644,7 +671,7 @@ ul {
     justify-content: center;
     align-items: center;
     gap: 50px;
-    .right p {
+    .right p 
       margin: 14px;
     } 
 
@@ -657,7 +684,7 @@ ul {
       transform: translateX(-50%);
       height: 100%;
     }
-  }
+  
   .trendingSongs{
     flex-wrap: wrap;
     justify-content: center;
@@ -667,6 +694,14 @@ ul {
     overflow-y: auto; /* উপর-নিচ (Vertical) স্ক্রল চালু করবে */
     padding-bottom: 120px;
   }
+   .trendingSongs::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100px;
+    flex-shrink: 0;
+  }
+
   .playbar {
     height: 126px;
     display: flex !important;
@@ -676,6 +711,8 @@ ul {
     margin: 0 auto;
     width: 96%;
     right: 0;
+    bottom: 10px;
+    position: fixed;
   }
 
   .center {
@@ -715,4 +752,4 @@ ul {
     gap: 10px;
 
   }
-  }
+}
