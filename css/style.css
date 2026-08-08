@@ -448,13 +448,27 @@ ul {
 
 /* playbar section */
 .songinfo {
-  color: rgb(252, 252, 252);
-  font-size: small;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+    color: rgb(252, 252, 252);
+    font-size: small;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 20%;
+    /* text-overflow: ellipsis; ← এটা মুছে দাও */
 
 
+}
+.songinfo span {
+    display: inline-block;
+    padding-right: 2rem;
+    animation: song-ticker 8s linear infinite;
+}
+@keyframes song-ticker {
+  0% { 
+    transform: translateX(-50%); /* বাম দিক থেকে শুরু হবে */
+  }
+  100% { 
+    transform: translateX(100%);   /* ডান দিকে চলে যাবে */
+  }
 }
 
 .songtime {
@@ -504,25 +518,39 @@ ul {
 }
 
 .seekbar {
-  cursor: pointer;
-  background-color: white;
-  height: 5px;
+ cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1); /* হালকা ব্যাকগ্রাউন্ড */
+  height: 6px; /* একটু মোটা করা হয়েছে */
   width: 99%;
   position: absolute;
   bottom: 4px;
   left: 2px;
   border-radius: 10px;
+  overflow: visible; /* সার্কেল গ্লো করার জন্য */
 }
 
 .circle {
-  width: 10px;
-  height: 10px;
-  border: 2px solid red;
-  border-radius: 10px;
+  width: 14px; /* সার্কেল একটু বড় করা হয়েছে */
+  height: 14px;
+  background: white; /* সার্কেল কালার সাদা */
+  border-radius: 50%; /* পুরোপুরি গোল */
   position: absolute;
-  bottom: -4px;
-  background: red;
-  transition: left 0.1s ease-in;
+  bottom: -4px; /* মাঝখানে সেট করার জন্য */
+  transform: translateX(-50%); /* নিখুঁতভাবে মাঝখানে */
+  transition: left 0.1s ease-in, box-shadow 0.2s ease; /* অ্যানিমেশন */
+
+  /* --- Glowing Effect --- */
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.6), /* হালকা গ্লো */
+              0 0 10px rgba(255, 255, 255, 0.4), /* একটু গভীর গ্লো */
+              0 0 20px rgba(0, 210, 255, 0.3);  /* হালকা নীল গ্লো (প্রিমিয়াম লুক) */
+}
+.seekbar:hover .circle {
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8),
+              0 0 15px rgba(255, 255, 255, 0.6),
+              0 0 30px rgba(0, 210, 255, 0.5);
+  width: 16px; /* হোভারে সার্কেল আরও বড় */
+  height: 16px;
+  bottom: -5px; /* বড় হওয়ার পর মাঝখানে সেট */
 }
 
 .playsvgs {
@@ -704,31 +732,45 @@ ul {
 
   .playbar {
     height: 126px;
-    display: flex !important;
-    justify-content: center !important;
-    text-align: center !important;
-    flex-direction: column !important;
+    display: flex ;
+    justify-content: center ;
+    text-align: center ;
+    flex-direction: column ;
     margin: 0 auto;
     width: 96%;
     right: 0;
     bottom: 10px;
     position: fixed;
   }
+  .songinfo{
+  width: 50%;
+  }
 
   .center {
-    justify-content: center;
+       position: absolute;
+    top: 27px;                  /* info_time এর নিচে শুরু */
+    left: 0;
+    width: 100%;
+    height: calc(100% - 36px); /* seekbar এর জায়গা রাখো */
+    transform: none;
+    display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    gap: 27px;
   }
 
   .playsvgs {
-    cursor: pointer;
-    display: flex;
-
+     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 16px;
-    transform: none;
-    gap: 10px;
     position: static;
+    transform: none;
+    width: 100%;
+  }
+  .volume{
+    height: 0;
   }
 
   .Cont_volume {
@@ -741,7 +783,14 @@ ul {
   .songtime {
     font-size: 0.8em;
   }
-
+@keyframes song-ticker {
+  0% { 
+    transform: translateX(-50%); /* বাম দিক থেকে শুরু হবে */
+  }
+  100% { 
+    transform: translateX(100%);   /* ডান দিকে চলে যাবে */
+  }
+}
 
 
   .info_time {

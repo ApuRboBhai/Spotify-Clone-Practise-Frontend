@@ -7,15 +7,30 @@ let songs;
 function playmusic(track){
     
    
-    currentsong.src = `${currFolder}/` + track;
+    currentsong.src = `${currFolder}/` + track.trim();
     currentsong.play();
     document.querySelector("#play").src = "img/pause.svg";
-   let info = document.querySelector(".songinfo").innerHTML =track ;
+
+  document.querySelector(".songinfo").innerHTML = `<span>${track}</span>`; //moving 
    
    document.querySelector(".songtime").innerHTML="00:00/00:00";
   document.querySelector(".volume").style.display = "flex";
    
 
+  // --- Highlight Currently Playing Song Logic ---
+    let allSongs = document.querySelectorAll(".songlist li .songPlay");
+
+    allSongs.forEach(songDiv => {
+        
+        songDiv.classList.remove("active-song"); 
+        
+   
+        let songName = songDiv.querySelector(".two p").innerHTML.trim();
+        if(songName === track.trim()) {
+           
+            songDiv.classList.add("active-song"); 
+        }
+    });
 }
 
 
@@ -41,6 +56,7 @@ async function getsongs(folder) {
 let a = await fetch(`${folder}/songs.json`);
   let data = await a.json();
  let songs = data.songs;
+
 //Git remove
 //   let response = await a.text();
 //   let div = document.createElement("div");
@@ -82,6 +98,8 @@ let a = await fetch(`${folder}/songs.json`);
 Array.from(document.querySelectorAll(".songlist .two")).forEach(e=>{
     e.addEventListener("click",element=>{
 let track =e.querySelector("p").innerHTML.trim()
+
+
 playmusic(track)
     })
     
@@ -93,7 +111,7 @@ return songs
 //display all the albums on the page
 async function displayAlbum() {
     let trendingSongs = document.querySelector(".trendingSongs");
-    let folders = ["Yo Yo Honey Singh","Sleepy song","Novel Songs","sad song","Jubin Nautiyal","Arijit Singh Songs","Emraan Hashmi","Fateh Ali Khan","Jisan Khan Shuvo","Darshan Raval","Arman Alif","Atif Aslam Songs","DJ song"];
+    let folders = ["Yo Yo Honey Singh","Sleepy song","Novel Songs","sad song","Jubin Nautiyal","Arijit Singh Songs","Jisan Khan Shuvo","Darshan Raval","Arman Alif","Atif Aslam Songs","DJ song"];
     //Git remove
 //    let a = await fetch(`/Songs/`);
 //     let response = await a.text();
@@ -159,17 +177,19 @@ async function main() {
 
   await displayAlbum();
     // লিস্ট লোড করা হচ্ছে
- songs = await getsongs("Songs/Yo Yo Honey Singh/");
+ songs = await getsongs("Songs/Yo Yo Honey Singh");
 
     // Attach an event listener to play, next and previous
     play.addEventListener("click", () => {
         if (currentsong.paused) {
             currentsong.play();
             play.src = "img/pause.svg";
+             document.querySelector('.songinfo span').style.animationPlayState = 'running';
         }
         else {
             currentsong.pause();
             play.src = "img/play.svg";
+          document.querySelector('.songinfo span').style.animationPlayState = 'paused';
         }
     })
 
